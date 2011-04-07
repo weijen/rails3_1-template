@@ -4,6 +4,10 @@ run "rm public/index.html"
 run "rm public/images/rails.png"
 run "cp config/database.yml config/database.yml.example"
 
+# use rvm
+if yes?("Use rvm?", :green)
+    apply File.join(File.dirname(__FILE__), "rvm_setting.rb")
+end
 # install gems
 run "rm Gemfile"
 file 'Gemfile', File.read("#{File.dirname(rails_template)}/Gemfile")

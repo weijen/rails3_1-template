@@ -1,0 +1,8 @@
+if [[ -d "${rvm_path:-$HOME/.rvm}/environments" \
+  && -s "${rvm_path:-$HOME/.rvm}/environments/<%= @ruby_version %>@<%= app_name %>" ]] ; then
+  \. "${rvm_path:-$HOME/.rvm}/environments/<%= @ruby_version %>@<%= app_name %>"
+else
+  rvm --create use  "<%= @ruby_version %>@<%= app_name %>"
+fi
+
+export rvm_pretty_print_flag=1
