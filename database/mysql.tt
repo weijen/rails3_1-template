@@ -1,0 +1,8 @@
+development:
+  adapter: mysql2
+  encoding: utf8
+  database: <%= options[:database] %>_development
+  username: root
+  password:
+  socket: /tmp/mysql.sock
+

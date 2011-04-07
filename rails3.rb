@@ -4,6 +4,7 @@ run "rm public/index.html"
 run "rm public/images/rails.png"
 run "cp config/database.yml config/database.yml.example"
 
+say "database: #{options[:database]}", :red
 # use rvm
 if yes?("Use rvm?", :green)
     apply File.join(File.dirname(__FILE__), "rvm_setting.rb")
@@ -16,7 +17,23 @@ if yes?("default language is Tranditional Chinese?", :green)
     append_to_file "config/locales/zh-TW.yml", "  sitename: #{app_name}"
 end
 
+# set development database.yml
+case options[:database]
+when "mysql"
+    gem "mysql2"
+    template "#{(File.dirname(__FILE__))}/database/mysql.tt", "config/database.yml"
+when "sqlite3"
+    gem 'sqlite3-ruby', :require => 'sqlite3'
+end
+
 # copy files from handicraft-theme
+if yes?("Use Handicraft Themes?", :green)
+    apply File.join(File.dirname(__FILE__), "handicraft-theme.rb")
+end
+
+# create root path
+generate :controller, "Welcome index"
+route "root :to => 'welcome#index'"
 
 # install gems
 run "rm Gemfile"
