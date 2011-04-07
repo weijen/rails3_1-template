@@ -9,6 +9,13 @@ if yes?("Use rvm?", :green)
     apply File.join(File.dirname(__FILE__), "rvm_setting.rb")
 end
 
+# i18n for Tranditional Chinese
+append_to_file "config/locales/en.yml", "  sitename: #{app_name}"
+if yes?("default language is Tranditional Chinese?", :green)
+    run "cp #{(File.dirname(__FILE__))}/locale/zh-TW.yml config/locales/"
+    append_to_file "config/locales/zh-TW.yml", "  sitename: #{app_name}"
+end
+
 # copy files from handicraft-theme
 
 # install gems
