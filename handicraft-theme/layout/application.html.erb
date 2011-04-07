@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <%= render_page_title %>
+    <%= stylesheet_link_tag 'handicraft/reset',
+                            'handicraft/text',
+                            'handicraft/960',
+                            'handicraft/form',
+                            'handicraft/handicraft',
+                            'handicraft/color-palette', # remove it for real project
+                            'stickie',
+                            'handicraft/themes/default/core' %>
+    <%= stylesheet_link_tag "/css/kuler.css?#{Time.now.to_i}", :id => "current-theme" %>
+    <link rel="shortcut icon" href="/favicon.ico">
+</head>
+<%= render_body_tag %>
+    <div id="doc">
+        <div id="header">
+            <div class="container_16 clearfix">
+                <div class="grid_16">
+                    <h1><%= link_to "Handicraft Project", root_path %></h1>
+                    <%= render :partial => "common/user_navigation" %>
+                    <%= render :partial => "common/main_navigation" %>
+                </div>
+            </div>
+        </div>
+        <% if flash.any? %>
+        <div id="stickies">
+            <div class="container_16 clearfix">
+                <div class="grid_16">
+                    <% flash.each do |type, messages| %>
+                    <%   messages.to_a.each do |message| %>
+                    <div class="<%= type %>_stickie">
+                        <%= message %>
+                        <span class="stickies_close_area"><a href="javascript:;">Close</a></span>
+                    </div>
+                    <%   end %>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+        <% end %>
+
+        <div id="wrapper" class="container_16 clearfix">
+            <div class="grid_16">
+                <%= yield %>
+            </div>
+        </div>
+        <div id="footer" class="container_16 clearfix">
+            <div class="grid_16">
+                <address>Copyright &copy; 2009 Handicraft Project</address>
+            </div>
+        </div>
+    </div>
+    <%= javascript_include_tag 'jquery-1.4.2.min',
+                               'core',
+                               'jquery.metadata',
+                               'jquery.cookie', # remove it for real project
+                               'handicraft',
+                               'application',
+                               'theme-chooser' # remove it for real project
+                               %>
+    <%= javascript_include_tag 'http://more.handlino.com/javascripts/moretext-1.1.js' %>
+    <%= yield_authenticity_token %>
+    <%= yield :page_specific_javascript %>
+</body>
+</html>

@@ -8,6 +8,9 @@ run "cp config/database.yml config/database.yml.example"
 if yes?("Use rvm?", :green)
     apply File.join(File.dirname(__FILE__), "rvm_setting.rb")
 end
+
+# copy files from handicraft-theme
+
 # install gems
 run "rm Gemfile"
 file 'Gemfile', File.read("#{File.dirname(rails_template)}/Gemfile")
