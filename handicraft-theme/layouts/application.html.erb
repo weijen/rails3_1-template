@@ -9,7 +9,8 @@
                             'handicraft/form',
                             'handicraft/handicraft',
                             'stickie',
-                            'handicraft/themes/default/core' %>
+                            'handicraft/themes/default/core',
+                            'handicraft/themes/default/blue' %>
     <link rel="shortcut icon" href="/favicon.ico">
 </head>
 <%= render_body_tag %>
@@ -47,20 +48,11 @@
         </div>
         <div id="footer" class="container_16 clearfix">
             <div class="grid_16">
-                <address>Copyright &copy; 2009 Handicraft Project</address>
+                <address>Copyright &copy; 2011 Handlino Inc.</address>
             </div>
         </div>
     </div>
-    <%= javascript_include_tag 'jquery-1.4.2.min',
-                               'core',
-                               'jquery.metadata',
-                               'jquery.cookie', # remove it for real project
-                               'handicraft',
-                               'application',
-                               'theme-chooser' # remove it for real project
-                               %>
-    <%= javascript_include_tag 'http://more.handlino.com/javascripts/moretext-1.1.js' %>
-    <%= yield_authenticity_token %>
+    <%= javascript_include_tag :defaults%>
     <%= yield :page_specific_javascript %>
 </body>
 </html>

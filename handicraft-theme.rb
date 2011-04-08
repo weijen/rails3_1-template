@@ -9,6 +9,7 @@ if File.directory?(File.dirname(__FILE__) + "/handicraft-theme")
     run "cp #{File.dirname(__FILE__)}/handicraft-theme/stylesheets/stickie.css public/stylesheets/"
     run "mkdir public/stylesheets/handicraft/"
     run "cp -R #{File.dirname(__FILE__)}/handicraft-theme/stylesheets/handicraft/* public/stylesheets/handicraft/"
+    run "cp #{File.dirname(__FILE__)}/handicraft-theme/handicraft_helper.rb app/helpers/"
 else
     say "Handicraft Theme not exist, please contact with Handlino", :red
 end
