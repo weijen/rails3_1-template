@@ -10,6 +10,9 @@ if File.directory?(File.dirname(__FILE__) + "/handicraft-theme")
     run "mkdir public/stylesheets/handicraft/"
     run "cp -R #{File.dirname(__FILE__)}/handicraft-theme/stylesheets/handicraft/* public/stylesheets/handicraft/"
     run "cp #{File.dirname(__FILE__)}/handicraft-theme/handicraft_helper.rb app/helpers/"
+
+    #copy scaffold template
+    run "cp -R #{File.dirname(__FILE__)}/handicraft-theme/templates lib/"
 else
     say "Handicraft Theme not exist, please contact with Handlino", :red
 end

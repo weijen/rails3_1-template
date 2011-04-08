@@ -1,3 +1,4 @@
+question_color = :green
 # remove files
 run "rm README"
 run "rm public/index.html"
@@ -6,7 +7,7 @@ run "cp config/database.yml config/database.yml.example"
 
 say "database: #{options[:database]}", :red
 # use rvm
-if yes?("Use rvm?", :green)
+if yes?("Use rvm?", question_color)
     apply File.join(File.dirname(__FILE__), "rvm_setting.rb")
 end
 
@@ -27,7 +28,7 @@ when "sqlite3"
 end
 
 # copy files from handicraft-theme
-if yes?("Use Handicraft Themes?", :green)
+if yes?("Use Handicraft Themes?", question_color)
     apply File.join(File.dirname(__FILE__), "handicraft-theme.rb")
 end
 
@@ -74,6 +75,7 @@ Thumbs.db
 .DS_Store
 tmp/*
 coverage/*
+*.swp
 CODE
 
 # keep tmp and log
