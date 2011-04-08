@@ -1,0 +1,30 @@
+<%% title :model => <%= class_name %>.model_name.human %>
+
+<table class="table">
+    <tr>
+        <%- for attribute in attributes -%>
+        <th><%%= <%= class_name %>.human_attribute_name(:<%= attribute.name %>) %></th>
+        <%- end -%>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+    <%% @<%= plural_name %>.each do |<%= singular_name %>| -%>
+    <tr>
+        <%- for attribute in attributes -%>
+        <td><%%= <%= singular_name %>.<%= attribute.name %> %></td>
+        <%- end -%>
+        <td>
+          <ul>
+            <li><%%= link_to t('links.show'), <%= singular_name %> %></li>
+            <li><%%= link_to t('links.edit'), edit_<%= singular_name %>_path(<%= singular_name %>) %></li>
+            <li><%%= link_to t('links.destroy'), <%= singular_name %>, :confirm => t('links.are_you_sure'), :method => :delete %></li>
+          </ul>
+        </td>
+    </tr>
+    <%% end %>
+</table>
+
+<br>
+
+<%%= link_to t('links.new', :model => <%= class_name %>.model_name.human), new_<%= singular_name %>_path %>
