@@ -60,7 +60,7 @@ if devise
   if user_model_name
     generate "devise #{user_model_name.capitalize}"
     append_to_file "db/seeds.rb" do
-      "#{Kernel.const_get(user_model_name.capitalize)}.create(:email => 'admin@example.com', :password => 'handlino', :password_confirmation => 'handlino')"
+      "#{user_model_name.capitalize}.create(:email => 'admin@example.com', :password => 'handlino', :password_confirmation => 'handlino')"
     end
   end
 end
