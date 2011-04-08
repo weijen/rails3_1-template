@@ -40,8 +40,30 @@ route "root :to => 'welcome#index'"
 run "rm Gemfile"
 file 'Gemfile', File.read("#{File.dirname(rails_template)}/Gemfile")
 
+# set Devise
+if yes?("Use Devise?", question_color)
+  devise = true
+  gem "devise"
+  if yes?("Do you want to input your first user model name?")
+        user_model_name = ask("model name => ")
+  end
+end
+
 # bundle install
 run "bundle install"
+
+### after bundle install  ###
+
+# generate devise
+if devise
+  generate 'devise:install'
+  if user_model_name
+    generate "devise #{user_model_name.capitalize}"
+    append_to_file "db/seeds.rb" do
+      "#{Kernel.const_get(user_model_name.capitalize)}.create(:email => 'admin@example.com', :password => 'handlino', :password_confirmation => 'handlino')"
+    end
+  end
+end
 
 # generate rspec
 generate "rspec:install"

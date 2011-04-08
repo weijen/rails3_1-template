@@ -11,19 +11,19 @@ gem 'mysql2'
 
 gem 'yajl-ruby', :require => 'yajl'
 gem 'nokogiri'
-gem 'simple_form'
 
-# Paginator
-# gem "kaminari"
-# gem 'will_paginate', '3.0.pre2'
+# form style
+gem 'simple_form'
+gem 'meta_search'
+
+# pagination
+gem 'kaminari'
 
 # File Uploads
 # gem 'paperclip'
-# gem 'carrierwave'
 
 # gem 'devise', '~> 1.1.7'
 # gem "cancan"
-# gem "simple_form"
 # gem 'fastercsv' # for Ruby 1.8.7+
 # gem 'prawn'
 # gem "haml"
