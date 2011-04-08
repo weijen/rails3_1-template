@@ -7,6 +7,10 @@ module HandicraftHelper
     @_content_for[:title] = t('.title', options)
   end
 
+  def show_title?
+    @show_title
+  end
+
   def yield_or_default(message, default_message = "")
     message.nil? ? default_message : message
   end

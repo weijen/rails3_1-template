@@ -11,6 +11,7 @@ gem 'mysql2'
 
 gem 'yajl-ruby', :require => 'yajl'
 gem 'nokogiri'
+gem 'simple_form'
 
 # Paginator
 # gem "kaminari"
