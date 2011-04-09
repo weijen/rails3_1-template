@@ -45,7 +45,7 @@ if yes?("Use Devise?", question_color)
   devise = true
   gem "devise"
   if yes?("Do you want to input your first user model name?")
-        user_model_name = ask("model name => ")
+        @user_model_name = ask("model name => ")
   end
 end
 
@@ -56,14 +56,11 @@ run "bundle install"
 
 # generate devise
 if devise
-  generate 'devise:install'
-  if user_model_name
-    generate "devise #{user_model_name.capitalize}"
-    append_to_file "db/seeds.rb" do
-      "#{user_model_name.capitalize}.create(:email => 'admin@example.com', :password => 'handlino', :password_confirmation => 'handlino')"
-    end
-  end
+  apply File.join(File.dirname(__FILE__), "devise.rb")
 end
+
+# generate simple_form
+generate "simple_form:install"
 
 # generate rspec
 generate "rspec:install"
