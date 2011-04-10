@@ -17,6 +17,4 @@ if @user_model_name
     CODE
   end
 
-  rake "db:migrate"
-  rake "db:seed"
 end

@@ -27,15 +27,6 @@ when "sqlite3"
     gem 'sqlite3-ruby', :require => 'sqlite3'
 end
 
-# copy files from handicraft-theme
-if yes?("Use Handicraft Themes?", question_color)
-    apply File.join(File.dirname(__FILE__), "handicraft-theme.rb")
-end
-
-# create root path
-generate :controller, "Welcome index"
-route "root :to => 'welcome#index'"
-
 # install gems
 run "rm Gemfile"
 file 'Gemfile', File.read("#{File.dirname(rails_template)}/Gemfile")
@@ -50,9 +41,24 @@ if yes?("Use Devise?", question_color)
 end
 
 # bundle install
+begin
+    run "gem install bundler"
+rescue
+    raise "Can't install bundler"
+end
+
 run "bundle install"
 
 ### after bundle install  ###
+
+# copy files from handicraft-theme
+if yes?("Use Handicraft Themes?", question_color)
+    apply File.join(File.dirname(__FILE__), "handicraft-theme.rb")
+end
+
+# create root path
+generate :controller, "Welcome index"
+route "root :to => 'welcome#index'"
 
 # generate devise
 if devise
@@ -64,6 +70,7 @@ generate "simple_form:install"
 
 # generate rspec
 generate "rspec:install"
+
 
 # copy files
 file 'script/watchr.rb', File.read("#{File.dirname(rails_template)}/watchr.rb")
