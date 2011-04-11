@@ -42,7 +42,8 @@ end
 
 # bundle install
 begin
-    run "gem install bundler"
+    run "gem install rails --no-ri --no-rdoc"
+    run "gem install bundler --no-ri --no-rdoc"
 rescue
     raise "Can't install bundler"
 end

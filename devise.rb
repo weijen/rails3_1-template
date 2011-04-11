@@ -17,4 +17,12 @@ if @user_model_name
     CODE
   end
 
+  say <<-CODE
+    還需要執行下列步驟：
+    1. 設定database.yml
+    2. 執行rake db:create
+    3. 執行rake db:migrate
+    4. 執行rake db:seeds
+    CODE
+
 end
