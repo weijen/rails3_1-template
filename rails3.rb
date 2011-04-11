@@ -103,6 +103,8 @@ Thumbs.db
 tmp/*
 coverage/*
 *.swp
+.rvmrc
+Gemfile.lock
 CODE
 
 # keep tmp and log
