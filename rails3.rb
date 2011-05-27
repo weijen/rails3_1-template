@@ -21,7 +21,7 @@ end
 # set development database.yml
 case options[:database]
 when "mysql"
-    gem "mysql2"
+    gem "mysql2", "<~ 0.3"
     template "#{(File.dirname(__FILE__))}/database/mysql.tt", "config/database.yml"
 when "sqlite3"
     gem 'sqlite3-ruby', :require => 'sqlite3'
@@ -42,8 +42,8 @@ end
 
 # bundle install
 begin
-    run "gem install rails --no-ri --no-rdoc"
-    run "gem install bundler --no-ri --no-rdoc"
+    run "gem install rails --pre --no-ri --no-rdoc"
+    #run "gem install bundler --no-ri --no-rdoc"
 rescue
     raise "Can't install bundler"
 end
@@ -84,13 +84,6 @@ gsub_file 'config/application.rb', /require 'rails\/all'/, <<-CODE
   require 'action_controller/railtie'
   require 'action_mailer/railtie'
 CODE
-
-# install jquery
-run "curl -L http://code.jquery.com/jquery.min.js > public/javascripts/jquery.js"
-run "curl -L http://github.com/rails/jquery-ujs/raw/master/src/rails.js > public/javascripts/rails.js"
-
-gsub_file 'config/application.rb', /(config.action_view.javascript_expansions.*)/, 
-                                   "config.action_view.javascript_expansions[:defaults] = %w(jquery rails)"
 
 # add time format
 environment 'Time::DATE_FORMATS.merge!(:default => "%Y/%m/%d %I:%M %p", :ymd => "%Y/%m/%d")'

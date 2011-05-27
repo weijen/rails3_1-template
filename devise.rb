@@ -1,4 +1,5 @@
 generate 'devise:install'
+say "現在設定devise Model: #{@user_model_name}"
 if @user_model_name
   generate "devise #{@user_model_name.capitalize}"
   append_to_file "db/seeds.rb" do
