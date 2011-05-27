@@ -29,18 +29,6 @@ end
 run "rm Gemfile"
 file 'Gemfile', File.read("#{File.dirname(rails_template)}/Gemfile")
 
-# bundle install
-begin
-    run "gem install rails --pre --no-ri --no-rdoc"
-    #run "gem install bundler --no-ri --no-rdoc"
-rescue
-    raise "Can't install bundler"
-end
-
-run "bundle install"
-
-### after bundle install  ###
-
 # copy files from handicraft-theme
 if yes?("Use Handicraft Themes?", question_color)
     apply File.join(File.dirname(__FILE__), "handicraft-theme.rb")
