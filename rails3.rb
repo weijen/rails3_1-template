@@ -21,24 +21,13 @@ end
 # set development database.yml
 case options[:database]
 when "mysql"
-    gem "mysql2", "<~ 0.3"
     template "#{(File.dirname(__FILE__))}/database/mysql.tt", "config/database.yml"
 when "sqlite3"
-    gem 'sqlite3-ruby', :require => 'sqlite3'
 end
 
 # install gems
 run "rm Gemfile"
 file 'Gemfile', File.read("#{File.dirname(rails_template)}/Gemfile")
-
-# set Devise
-if yes?("Use Devise?", question_color)
-  devise = true
-  gem "devise"
-  if yes?("Do you want to input your first user model name?")
-        @user_model_name = ask("model name => ")
-  end
-end
 
 # bundle install
 begin
@@ -60,11 +49,6 @@ end
 # create root path
 generate :controller, "Welcome index"
 route "root :to => 'welcome#index'"
-
-# generate devise
-if devise
-  apply File.join(File.dirname(__FILE__), "devise.rb")
-end
 
 # generate simple_form
 generate "simple_form:install"
