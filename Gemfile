@@ -16,7 +16,7 @@ gem 'jquery-rails'
 # gem 'sqlite3-ruby', :require => 'sqlite3'
 # gem 'moneta'
 
-gem 'mysql2', '0.3.2'
+gem 'mysql2'
 gem 'yajl-ruby', :require => 'yajl'
 gem 'nokogiri'
 
