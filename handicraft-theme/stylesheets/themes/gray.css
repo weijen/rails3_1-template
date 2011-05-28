@@ -1,0 +1,185 @@
+/* `Text
+----------------------------------------------------------------------------------------------------*/
+
+html, body {
+    color: #222;
+    background: #eee;
+}
+
+hr {
+    background: #f0f0ee;
+    color: #f0f0ee;
+}
+
+.hightlight {
+    background-color: #ff8;
+}
+
+h1, h2, h3 {
+    color: #36393d;
+}
+
+/* `Link
+----------------------------------------------------------------------------------------------------*/
+
+a:link {
+    color: #369;
+}
+
+a:visited {
+    color: #423132;
+}
+
+a:hover {
+    color: #666C73;
+}
+
+a:active {
+    color: #666C73;
+}
+
+/* `Header
+----------------------------------------------------------------------------------------------------*/
+#header {
+    background: #333;
+}
+
+#header h1 a {
+    color: #fff;
+}
+
+/* `Footer
+----------------------------------------------------------------------------------------------------*/
+
+#footer .grid_16 {
+    color: #FFF;
+    background: #1a1a1a;
+}
+
+/* `Section
+----------------------------------------------------------------------------------------------------*/
+
+.section {
+}
+
+.section h2.title, .section h3.title {
+    margin: 0;
+    background: #333;
+    color: #fff;
+}
+
+/* `Navigation
+----------------------------------------------------------------------------------------------------*/
+
+#main-navigation {
+    background: #333;
+}
+
+#main-navigation ul li a {
+    background: #333;
+}
+
+#main-navigation ul li.current a,
+#main-navigation ul li.current a:hover {
+    background: #eee;
+}
+
+#main-navigation ul li a:hover {
+    background: #f0f0ee;
+    color: #1a1a1a;
+}
+
+#main-navigation ul li a, #user-navigation ul li a {
+    color: #FFF;
+}
+
+#main-navigation ul li.current a {
+    color: #1a1a1a;
+}
+
+#top-menu {
+    background: #333;
+}
+
+#top-menu li {
+    margin: 0 0 0 6px;
+}
+
+#top-menu a {
+    display: block;
+    width: 149px;
+    height: 40px;
+    line-height: 40px;
+    background: #000;
+    color: #f2f2f2;
+    text-align: center;
+    text-decoration: none;
+}
+
+#top-menu .current a {
+    cursor: default;
+}
+
+#top-menu .current a,
+#top-menu a:hover {
+    background: #fff;
+    color: #000;
+}
+
+
+/* `Table
+----------------------------------------------------------------------------------------------------*/
+
+.table thead th {
+    background: #36393d;
+    color: #FFF;
+}
+
+.table td, .table th {
+    border-bottom: 1px solid #F0F0EE;
+}
+
+.table tr.even {
+    background: #ebebeb;
+}
+
+/* `Sidebar
+----------------------------------------------------------------------------------------------------*/
+
+#sidebar .notice {
+    background: #E6EEFC;
+}
+
+#sidebar .notice h4 {
+    color: #0B43A8;
+}
+
+#sidebar .nav ul li a {
+    background: #ddd;
+    color: #000;
+    border-bottom: 1px solid #F0F0EE;
+    text-decoration: none;
+}
+
+/* `Pagination
+----------------------------------------------------------------------------------------------------*/
+
+.pagination a, .pagination span {
+    background: #eee;
+    border: 1px solid #c1c1c1;
+}
+
+.pagination em {
+    background: #36393d;
+    color: #FFF;
+    border: 1px solid #36393d;
+}
+
+.pagination a {
+    color: #1a1a1a;
+}
+
+.pagination a:hover {
+    border: 1px solid #666;
+    background: #fff;
+}

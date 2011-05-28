@@ -5,7 +5,6 @@ run "rm public/index.html"
 run "rm public/images/rails.png"
 run "cp config/database.yml config/database.yml.example"
 
-say "database: #{options[:database]}", :red
 # use rvm
 if yes?("Use rvm?", question_color)
     apply File.join(File.dirname(__FILE__), "rvm_setting.rb")
@@ -13,7 +12,7 @@ end
 
 # i18n for Tranditional Chinese
 append_to_file "config/locales/en.yml", "  sitename: #{app_name}"
-if yes?("default language is Tranditional Chinese?", :green)
+if yes?("default language is Tranditional Chinese?", question_color)
     run "cp #{(File.dirname(__FILE__))}/locale/zh-TW.yml config/locales/"
     append_to_file "config/locales/zh-TW.yml", "  sitename: #{app_name}"
 end
