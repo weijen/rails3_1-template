@@ -21,13 +21,11 @@
         <div id="stickies">
             <div class="container_16 clearfix">
                 <div class="grid_16">
-                    <% flash.each do |type, messages| %>
-                    <%   messages.to_a.each do |message| %>
+                    <% flash.each do |type, message| %>
                     <div class="<%= type %>_stickie">
                         <%= message %>
                         <span class="stickies_close_area"><a href="javascript:;">Close</a></span>
                     </div>
-                    <%   end %>
                     <% end %>
                 </div>
             </div>
