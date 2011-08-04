@@ -5,6 +5,9 @@
 # Usage
 
 	rails new your_project_name -TJ -d mysql -m rails3_1-template/rails3.rb
+
+  if you want to generate .rvmrc file automatically, you should install rvm gem first.
+  >> gem install rvm
 	
 # License
 
