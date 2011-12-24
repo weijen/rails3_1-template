@@ -1,5 +1,14 @@
-<%% title :model => <%= class_name %>.model_name.human %>
+<div class="hd">
+    <h1>
+        <%%= t(".title") %>
+    </h1>
+</div>
 
-<%%= render 'form' %>
+<div class="section">
+    <div class="bd">
+        <%%= render 'form' %>
 
-<%%= link_to t('links.index'), <%= plural_name %>_path %>
+        <%%= link_to t('links.index'), <%= plural_name %>_path %>
+    </div>
+</div>
+
