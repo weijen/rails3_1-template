@@ -25,8 +25,9 @@ when "sqlite3"
 end
 
 # install gems
-run "rm Gemfile"
-file 'Gemfile', File.read("#{File.dirname(rails_template)}/Gemfile")
+gem 'simple_form'
+gem 'will_paginate'
+gem 'meta_search'
 
 # copy files from handicraft-theme
 if yes?("Use Handicraft Themes?", question_color)
@@ -37,15 +38,8 @@ end
 generate :controller, "Welcome index"
 route "root :to => 'welcome#index'"
 
-# generate simple_form
-generate "simple_form:install"
-
-# generate rspec
-generate "rspec:install"
-
-
 # copy files
-file 'script/watchr.rb', File.read("#{File.dirname(rails_template)}/watchr.rb")
+#file 'script/watchr.rb', File.read("#{File.dirname(rails_template)}/watchr.rb")
 file 'lib/tasks/dev.rake', File.read("#{File.dirname(rails_template)}/dev.rake")
 
 # remove active_resource and test_unit

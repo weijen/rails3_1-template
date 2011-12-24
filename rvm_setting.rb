@@ -1,3 +1,4 @@
+#encoding: UTF-8
 begin
     require 'rvm'
 rescue
@@ -10,18 +11,7 @@ if yes?("你目前的ruby版本為#{RVM.current.environment_name}，將作為#{a
 
   @rvm_env = "#{RVM.current.environment_name}@#{app_name}"
   
-  run "rvm #{RVM.current.environment_name}"
-  
-  template( (File.dirname(__FILE__) + '/templates/rvmrc.tt'), ".rvmrc")
-  
-  say "Creating RVM gemset #{@rvm_env}"
-  RVM.gemset_create @rvm_env
-  
-  say"Trusting project's .rvmrc"
-  run "rvm rvmrc trust"
-  
-  say "Switching to use RVM gemset #{@rvm_env}"
-  RVM.gemset_use! @rvm_env
+  run "rvm use #{@rvm_env} --create --rvmrc"
 end
 
 

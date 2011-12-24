@@ -1,7 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', "3.1.0.rc5"
-gem 'rake', '~> 0.8.7'
+gem 'rails', "3.1.3"
 
 # Asset template engines
 gem 'sass'
