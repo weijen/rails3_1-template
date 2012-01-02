@@ -42,14 +42,6 @@ route "root :to => 'welcome#index'"
 #file 'script/watchr.rb', File.read("#{File.dirname(rails_template)}/watchr.rb")
 file 'lib/tasks/dev.rake', File.read("#{File.dirname(rails_template)}/dev.rake")
 
-# remove active_resource and test_unit
-gsub_file 'config/application.rb', /require 'rails\/all'/, <<-CODE
-  require 'rails'
-  require 'active_record/railtie'
-  require 'action_controller/railtie'
-  require 'action_mailer/railtie'
-CODE
-
 # add time format
 environment 'Time::DATE_FORMATS.merge!(:default => "%Y/%m/%d %I:%M %p", :ymd => "%Y/%m/%d")'
 
